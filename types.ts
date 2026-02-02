@@ -40,24 +40,6 @@ export interface Debt {
   minimumPayment: number;
 }
 
-export interface ProcessedFile {
-  name: string;
-  size: number;
-  type: string;
-  timestamp: number;
-}
-
-export interface FinancialState {
-  transactions: Transaction[];
-  goals: FinancialGoal[];
-  debts: Debt[];
-  monthlyIncome: number;
-  processedFiles: ProcessedFile[];
-  analysis?: string;
-  recommendations?: Recommendation[];
-  lastUpdated?: number;
-}
-
 export enum View {
   LOGIN = 'LOGIN',
   DASHBOARD = 'DASHBOARD',
@@ -66,4 +48,21 @@ export enum View {
   GOALS = 'GOALS',
   DEBTS = 'DEBTS',
   PLAN = 'PLAN'
+}
+
+export interface FinancialState {
+  user: User | null;
+  currentView: View;
+  transactions: Transaction[];
+  goals: FinancialGoal[];
+  debts: Debt[];
+  monthlyIncome: number;
+  analysis?: string;
+  recommendations?: Recommendation[];
+  isLoading: boolean;
+  isSidebarOpen: boolean;
+  notifications: { id: number; message: string; type: string }[];
+  searchQuery: string;
+  editingTransactionId: string | null;
+  isTransactionModalOpen: boolean;
 }
