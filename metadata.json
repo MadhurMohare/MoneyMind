@@ -1,0 +1,7 @@
+{
+  "name": "Money Mind",
+  "description": "An AI-powered financial agent that analyzes payslips, bank statements, and Excel files to provide personalized debt repayment strategies and goal-oriented financial planning.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
