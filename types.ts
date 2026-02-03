@@ -1,3 +1,4 @@
+
 export interface User {
   username: string;
   isLoggedIn: boolean;
@@ -40,6 +41,16 @@ export interface Debt {
   minimumPayment: number;
 }
 
+export interface ProcessedDocument {
+  id: string;
+  name: string;
+  uploadDate: string;
+  type: string;
+  status: 'success' | 'error' | 'processing';
+  transactionCount: number;
+  hash?: string;
+}
+
 export enum View {
   LOGIN = 'LOGIN',
   DASHBOARD = 'DASHBOARD',
@@ -56,6 +67,8 @@ export interface FinancialState {
   transactions: Transaction[];
   goals: FinancialGoal[];
   debts: Debt[];
+  processedDocuments: ProcessedDocument[];
+  fileHashes: string[];
   monthlyIncome: number;
   analysis?: string;
   recommendations?: Recommendation[];
@@ -65,4 +78,7 @@ export interface FinancialState {
   searchQuery: string;
   editingTransactionId: string | null;
   isTransactionModalOpen: boolean;
+  isGoalFormOpen: boolean;
+  isDebtFormOpen: boolean;
+  isRegistering: boolean;
 }
